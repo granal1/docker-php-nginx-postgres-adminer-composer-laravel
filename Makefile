@@ -62,4 +62,4 @@ stop-dev:
 
 upgrade-dev: stop-dev git-pull pull-dev build-dev composer-install-dev database-migrate start-dev
 
-wfms-begin: composer-update generate-app-key laravel-cache database-migrate database-seed start-dev
+wfms-begin: composer-update start-dev generate-app-key database-migrate database-seed laravel-cache

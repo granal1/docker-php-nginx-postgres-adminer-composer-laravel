@@ -10,7 +10,7 @@ Docker использует Nginx, PHP-FPM, PostgreSQL, Composer, Adminer и Lar
 
 ## Настройка и запуск
 
-1. Загрузка из гит репозитория `git clone https://github.com/granal1/docker-php-nginx-postgres-adminer-composer-laravel.git`  
+1. Загрузка из гит репозитория `git clone https://github.com/granal1/docker-php-nginx-postgres-adminer-composer-laravel.git project`  
 2. При необходимости перенести проект в требуемую директорию.  
 3. Изменение настроек доступа к БД в части имени пользователя, пароля и названия базы данных можно выполнить отредактировав .env  
 4. Сборка контейнеров выполняется командой `make build-dev` (`docker-compose build`)   
@@ -55,12 +55,12 @@ Docker использует Nginx, PHP-FPM, PostgreSQL, Composer, Adminer и Lar
 
 1. Установка WfMS - `make wfms-install` (`rm -R html && git commit -a -m 'html deleted' &&  git submodule add https://github.com/granal1/WfMS.git html`)  
 2. В директории html создать .env по примеру .env.example. Внести в .env настройки работы с БД из .env, находящегося в корне проекта.  
-3. Сгенерировать ключ безопасности - `make generate-app-key` (`docker-compose run --rm php php artisan key:generate`)
-4. Загрузка указанных в composer.json библиотек - `make composer-update` (`docker-compose run --rm php`)  
-5. Создание рабочих таблиц в БД - `make database-migrate` (`docker-compose run --rm php php artisan migrate --force`)   
-6. Добавление в БД первичных данных - `make data-seed` (`docker-compose run --rm php composer seed`)   
-7. Перекэширование данных - `make laravel-cache` (`docker-compose exec php php artisan cache:clear && docker-compose exec php php artisan config:cache && docker-compose exec php php artisan event:cache && docker-compose exec php php artisan route:cache && docker-compose exec php php artisan view:cache`)  
-8. Команда запуска контейнера - `make start-dev` (`docker-compose up -d`)  
+3. Команда запуска контейнера - `make start-dev` (`docker-compose up -d`)  
+4. Сгенерировать ключ безопасности - `make generate-app-key` (`docker-compose run --rm php php artisan key:generate`)
+5. Загрузка указанных в composer.json библиотек - `make composer-update` (`docker-compose run --rm php`)  
+6. Создание рабочих таблиц в БД - `make database-migrate` (`docker-compose run --rm php php artisan migrate --force`)   
+7. Добавление в БД первичных данных - `make data-seed` (`docker-compose run --rm php composer seed`)  
+8. Перекэширование данных - `make laravel-cache` (`docker-compose exec php php artisan cache:clear && docker-compose exec php php artisan config:cache && docker-compose exec php php artisan event:cache && docker-compose exec php php artisan route:cache && docker-compose exec php php artisan view:cache`)  
 
 Дополнительные команды:
 
@@ -69,5 +69,6 @@ Docker использует Nginx, PHP-FPM, PostgreSQL, Composer, Adminer и Lar
 - Запуск обработчика очередей - `make laravel-queue` (`docker-compose run --rm php php artisan queue:work`)  
 - Остановка контейнера - `make stop-dev` (`docker-compose down --remove-orphans`)  
 - Перезапуск контейнера - `make restart-dev` (`docker-compose down --remove-orphans && docker-compose up -d`)  
+
 
 
