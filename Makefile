@@ -18,7 +18,6 @@ database-migrate:
 
 wfms-install:
 	mkdir -m 777 html
-#	git submodule add https://github.com/granal1/WfMS.git html
 	git clone https://github.com/granal1/WfMS.git html
 
 generate-app-key:
@@ -59,8 +58,6 @@ start-dev:
 
 stop-dev:
 	docker-compose down --remove-orphans
-
-# update-dev: down git-pull-dev composer-install-dev database-migrate up
 
 upgrade-dev: stop-dev git-pull pull-dev build-dev composer-install-dev database-migrate start-dev
 

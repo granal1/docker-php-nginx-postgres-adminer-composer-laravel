@@ -6,7 +6,9 @@ Docker использует Nginx, PHP-FPM, PostgreSQL, Composer, Adminer и Lar
 
 ## Системные требования
 
-...
+Проверено на Linux.  
+Для использования требуется `docker`, `docker-compose`.  
+Для удобства использования нужна утилита `make`.
 
 ## Настройка и запуск
 
