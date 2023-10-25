@@ -41,12 +41,11 @@ Docker использует Nginx, PHP-FPM, PostgreSQL, Composer, Adminer и Lar
 1. Установка Laravel - `make laravel-install` (`mkdir -m 777 html && docker-compose run --rm php composer create-project laravel/laravel laravel --prefer-dist && -rm -rf ./html/public/* && -mv -f ./html/laravel/.* ./html/laravel/* ./html && -rm -rf ./html/laravel`).  
 2. В директории ./html создать .env по примеру .env.example. Внести в ./html/.env настройки работы с БД из .env, находящегося в корне проекта.  
 3. Команда запуска контейнера - `make start-dev` (`docker-compose up -d`)  
-4. Загрузка указанных в ./html/composer.json библиотек - `make composer-update` (`docker-compose run --rm php`)  
+4. Обновление указанных в ./html/composer.json библиотек - `make composer-update` (`docker-compose run --rm php composer update`)  
 5. Создание рабочих таблиц в БД - `make database-migrate` (`docker-compose run --rm php php artisan migrate --force`)     
 
 Дополнительные команды:
 
-- Обновление Composer - `make composer-update` (`docker-compose run --rm php composer update`)  
 - Остановка контейнера - `make stop-dev` (`docker-compose down --remove-orphans`)  
 - Перезапуск контейнера - `make restart-dev` (`docker-compose down --remove-orphans && docker-compose up -d`)
 
@@ -56,7 +55,7 @@ Docker использует Nginx, PHP-FPM, PostgreSQL, Composer, Adminer и Lar
 
 1. Установка WfMS - `make wfms-install` (`mkdir -m 777 html && git clone https://github.com/granal1/WfMS.git html`)  
 2. В директории html создать .env по примеру .env.example. Внести в .env настройки работы с БД из .env, находящегося в корне проекта.  
-3. Загрузка указанных в composer.json библиотек - `make composer-update` (`docker-compose run --rm php`)  
+3. Обновление указанных в composer.json библиотек - `make composer-update` (`docker-compose run --rm php composer update`)  
 4. Команда запуска контейнера - `make start-dev` (`docker-compose up -d`)  
 5. Сгенерировать ключ безопасности - `make generate-app-key` (`docker-compose run --rm php php artisan key:generate`)  
 6. Создание рабочих таблиц в БД - `make database-migrate` (`docker-compose run --rm php php artisan migrate --force`)   
