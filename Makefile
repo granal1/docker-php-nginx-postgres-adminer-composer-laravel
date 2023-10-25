@@ -17,7 +17,9 @@ database-migrate:
 	docker-compose run --rm php php artisan migrate --force
 
 wfms-install:
-	git submodule add https://github.com/granal1/WfMS.git html
+	mkdir -m 777 html
+#	git submodule add https://github.com/granal1/WfMS.git html
+	git clone https://github.com/granal1/WfMS.git html
 
 generate-app-key:
 	docker-compose run --rm php php artisan key:generate
@@ -35,6 +37,7 @@ laravel-queue:
 	docker-compose run --rm php php artisan queue:work
 
 laravel-install:
+	mkdir -m 777 html
 	docker-compose run --rm php composer create-project laravel/laravel laravel --prefer-dist
 	-mv -f ./html/laravel/.* ./html/laravel/* ./html
 	-rm -rf ./html/laravel

@@ -36,7 +36,7 @@ Docker использует Nginx, PHP-FPM, PostgreSQL, Composer, Adminer и Lar
 
 Предварительно необходимо выполнить действия из раздела **[Настройка и запуск](#-Настройка-и-запуск)**
 
-1. Установка Laravel - `make laravel-install` (`docker-compose run --rm php composer create-project laravel/laravel laravel --prefer-dist && -rm -rf ./html/public/* && -mv -f ./html/laravel/.* ./html/laravel/* ./html && -rm -rf ./html/laravel`).  
+1. Установка Laravel - `make laravel-install` (`mkdir -m 777 html && docker-compose run --rm php composer create-project laravel/laravel laravel --prefer-dist && -rm -rf ./html/public/* && -mv -f ./html/laravel/.* ./html/laravel/* ./html && -rm -rf ./html/laravel`).  
 2. В директории ./html создать .env по примеру .env.example. Внести в ./html/.env настройки работы с БД из .env, находящегося в корне проекта.  
 3. Команда запуска контейнера - `make start-dev` (`docker-compose up -d`)  
 4. Загрузка указанных в ./html/composer.json библиотек - `make composer-update` (`docker-compose run --rm php`)  
@@ -52,7 +52,7 @@ Docker использует Nginx, PHP-FPM, PostgreSQL, Composer, Adminer и Lar
 
 Предварительно необходимо выполнить действия из раздела **[Настройка и запуск](#-Настройка-и-запуск)**
 
-1. Установка WfMS - `make wfms-install` (`rm -R html && git commit -a -m 'html deleted' &&  git submodule add https://github.com/granal1/WfMS.git html`)  
+1. Установка WfMS - `make wfms-install` (`mkdir -m 777 html && git clone https://github.com/granal1/WfMS.git html`)  
 2. В директории html создать .env по примеру .env.example. Внести в .env настройки работы с БД из .env, находящегося в корне проекта.  
 3. Загрузка указанных в composer.json библиотек - `make composer-update` (`docker-compose run --rm php`)  
 4. Команда запуска контейнера - `make start-dev` (`docker-compose up -d`)  
