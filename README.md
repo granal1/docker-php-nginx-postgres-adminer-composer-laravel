@@ -21,7 +21,7 @@ Docker использует Nginx, PHP-FPM, PostgreSQL, Composer, Adminer и Lar
 
 Предварительно необходимо выполнить действия из раздела **[Настройка и запуск](#-Настройка-и-запуск)**
 
-1. Установка Composer осуществляется командой `make composer-install-dev` (`docker-compose run --rm php composer install`)   
+1. Установка Composer осуществляется командой `make composer-install-dev` (`unzip html.zip && docker-compose run --rm php composer install`)   
 2. По умолчанию в ./html/composer.json указана библиотека для логироваия "monolog/monolog". Дополнить при необходимости.  
 3. Обновление указанных в composer.json библиотек выполняется командой `make composer-update` (`docker-compose run --rm php`)  
 4. Команда запуска контейнера - `make start-dev` (`docker-compose up -d`)  

@@ -3,9 +3,11 @@ build-dev:
 	docker-compose build
 
 composer-install:
+	unzip html.zip
 	docker-compose run --rm php composer install
 
 composer-install-dev:
+	unzip html.zip
 	docker-compose run --rm php composer install
 
 composer-update:
@@ -15,8 +17,6 @@ database-migrate:
 	docker-compose run --rm php php artisan migrate --force
 
 wfms-install:
-	rm -R html
-	git commit -a -m 'html deleted'
 	git submodule add https://github.com/granal1/WfMS.git html
 
 generate-app-key:
@@ -36,7 +36,6 @@ laravel-queue:
 
 laravel-install:
 	docker-compose run --rm php composer create-project laravel/laravel laravel --prefer-dist
-	-rm -rf ./html/public/*
 	-mv -f ./html/laravel/.* ./html/laravel/* ./html
 	-rm -rf ./html/laravel
 
