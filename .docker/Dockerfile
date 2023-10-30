@@ -29,7 +29,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install -j$(nproc) iconv gd mysqli pdo_pgsql pdo_mysql soap bcmath gmp intl opcache zip
 
 # Install Xdebug
-RUN pecl install xdebug \
+RUN pecl install xdebug 3.2.2\
     && docker-php-ext-enable xdebug
 
 #RUN curl -s "https://laravel.build/example-app" | bash
